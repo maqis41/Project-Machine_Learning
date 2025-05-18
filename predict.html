@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Prediksi</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      color: white;
+      background-image: url('img/background-predict .jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .form-container {
+      max-width: 400px;
+      margin: 100px auto;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: 1px solid white;
+      background-color: deepskyblue;
+      color: white;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #009fd1;
+    }
+
+    @media (max-width: 480px) {
+      .form-container {
+        margin: 50px 20px;
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Health care</h2>
+    <form onsubmit="return predict()">
+      <input type="text" placeholder="Age" required />
+      <input type="text" placeholder="Sex" required />
+      <input type="text" placeholder="Chest Pain" required />
+      <input type="text" placeholder="Resting PB" required />
+      <input type="text" placeholder="Cholesterol" required />
+      <input type="text" placeholder="Fasting BS" required />
+      <input type="text" placeholder="Resting ECG" required />
+      <input type="text" placeholder="Max HR" required />
+      <input type="text" placeholder="Exercise Angina" required />
+      <input type="text" placeholder="Old peak" required />
+      <input type="text" placeholder="ST Slope" required />
+      <input type="text" placeholder="Heart Disease" required />
+      <button type="submit">Predict</button>
+    </form>
+  </div>
+  <script>
+    function predict() {
+      alert("Prediksi berhasil dijalankan! (simulasi)");
+      return false; // mencegah reload form
+    }
+  </script>
+</body>
+</html>
