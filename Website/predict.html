@@ -8,15 +8,17 @@
       margin: 0;
       font-family: sans-serif;
       color: white;
-      background-image: url('img/predict.jpg') no-repeat center center fixed;
+      background-image: url('img/predict.jpeg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-attachment: fixed;
       background-size: cover;
-      background-position: center;
     }
 
     .form-container {
       max-width: 400px;
       margin: 100px auto;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgb(91, 91, 88);
       padding: 20px;
       border-radius: 12px;
     }
@@ -58,7 +60,12 @@
     }
   </style>
 </head>
+<header>
+    <div class="logo" onclick="goHome()">health care</div>
+    
+  </header>
 <body>
+  
   <div class="form-container">
     <h2>Health care</h2>
     <form onsubmit="return predict()">
@@ -82,6 +89,13 @@
       alert("Prediksi berhasil dijalankan! (simulasi)");
       return false; // mencegah reload form
     }
+    
+
+
+    function goHome() {
+      window.location.href = "index.html";
+    }
+  
   </script>
 </body>
 </html>
