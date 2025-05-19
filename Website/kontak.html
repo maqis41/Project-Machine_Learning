@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anggota Kelompok</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(rgba(227, 233, 208, 0.6),rgba(227, 233, 208, 0.6)), url('img/bg-team.jpg');
+      background-size: cover;
+      background-position: center;
+      color: #06202B;
+    }
+
+    header {
+      background-color: rgba(227, 233, 208, 0.6);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+    }
+
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .team-section {
+      position: relative;
+      padding: 60px 20px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Gambar latar belakang khusus untuk section ini */
+    .team-section .background-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('img/kontak.jpeg'); /* GANTI DENGAN GAMBAR BACKGROUND TIM */
+      background-size: cover;
+      background-position: center;
+      opacity: 0.3; /* atur transparansi agar teks tetap terbaca */
+      z-index: 0;
+    }
+
+    .team-section h1,
+    .team-section p,
+    .team-grid {
+      position: relative;
+      z-index: 1;
+    }
+
+    .team-section h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    .team-section p {
+      color: #645d52;
+      margin-bottom: 40px;
+    }
+
+    .team-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .team-card {
+      background-color: rgba(103, 107, 88, 0.938);
+      padding: 20px;
+      border-radius: 15px;
+      width: 260px;
+      text-align: center;
+      backdrop-filter: blur(5px);
+      transition: transform 0.3s ease;
+    }
+
+    .team-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .team-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 2px solid white;
+    }
+
+    .team-card h3 {
+      margin: 0;
+      font-size: 1.2em;
+    }
+
+    .team-card p {
+      margin: 5px 0;
+      color: #ddd;
+      font-size: 0.95em;
+    }
+
+    @media (max-width: 600px) {
+      .team-card {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo" onclick="goHome()">health care</div>
+  </header>
+
+  <section class="team-section">
+    <!-- Gambar latar belakang section -->
+    <div class="background-image"></div>
+
+    <h1>Anggota Kelompok</h1>
+    <p>Berikut adalah anggota tim pengembang website prediksi penyakit jantung.</p>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <h3>Ahmad Mahdi Assalam</h3>
+        <p>2423600017</p>
+      </div>
+
+      <div class="team-card">
+        <h3>Muahmmad Zacky Safri</h3>
+        <p>2423600028</p>
+      </div>
+
+      <div class="team-card">
+        <h3>Bagas Cakti</h3>
+        <p>2423600029</p>
+      </div>
+
+      <div class="team-card">
+        <h3></h3>
+        <p></p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function goHome() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

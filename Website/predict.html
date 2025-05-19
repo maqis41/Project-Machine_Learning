@@ -15,10 +15,27 @@
       background-size: cover;
     }
 
+    /* Tambahan: Gaya untuk header dan logo */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: rgba(155, 140, 140, 0.6);
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
     .form-container {
       max-width: 400px;
       margin: 100px auto;
-      background-color: rgb(91, 91, 88);
+      background-color: rgba(91, 91, 88, 0.85);
       padding: 20px;
       border-radius: 12px;
     }
@@ -57,17 +74,21 @@
         margin: 50px 20px;
         padding: 15px;
       }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
-<header>
-    <div class="logo" onclick="goHome()">health care</div>
-    
-  </header>
 <body>
-  
+  <header>
+    <div class="logo" onclick="goHome()">health care</div>
+  </header>
+
   <div class="form-container">
-    <h2>Health care</h2>
+    
     <form onsubmit="return predict()">
       <input type="text" placeholder="Age" required />
       <input type="text" placeholder="Sex" required />
@@ -84,18 +105,16 @@
       <button type="submit">Predict</button>
     </form>
   </div>
+
   <script>
     function predict() {
       alert("Prediksi berhasil dijalankan! (simulasi)");
       return false; // mencegah reload form
     }
-    
-
 
     function goHome() {
       window.location.href = "index.html";
     }
-  
   </script>
 </body>
 </html>
