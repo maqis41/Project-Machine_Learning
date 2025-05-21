@@ -8,7 +8,7 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: url('{{ url_for('static', filename='img/index.jpg') }}') no-repeat center center fixed;
+      background: url('img/index.jpg') no-repeat center center fixed;
       background-size: cover;
       color: white;
     }
@@ -134,11 +134,11 @@
   <header>
     <div class="logo" onclick="goHome()">health care</div>
     <nav>
-      <a href="{{ url_for('index') }}">Beranda</a>
-      <a href="{{ url_for('apa') }}">Tentang</a>
+      <a href="index.html">Beranda</a>
+      <a href="apa.html">Tentang</a>
       <a href="#">Layanan</a>
       <a href="#">Blog</a>
-      <a href="{{ url_for('kontak') }}">Kontak</a>
+      <a href="kontak.html">Kontak</a>
     </nav>
     <button class="btn-outline" onclick="goToPredict()">Mulai Sekarang</button>
   </header>
@@ -154,11 +154,11 @@
 
   <script>
     function goToPredict() {
-      window.location.href = "{{ url_for('predict') }}";
+      window.location.href = "predict.html";
     }
 
     function goHome() {
-      window.location.href = "{{ url_for('index') }}";
+      window.location.href = "index.html";
     }
   </script>
 </body>
