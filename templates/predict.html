@@ -8,7 +8,7 @@
       margin: 0;
       font-family: sans-serif;
       color: white;
-      background-image: url('img/predict.jpeg');
+      background-image: url('/static/img/predict.jpeg');
       background-repeat: no-repeat;
       background-position: center center;
       background-attachment: fixed;
@@ -113,7 +113,7 @@
     }
 
     function goHome() {
-      window.location.href = "index.html";
+      window.location.href = "{{ url_for('index') }}";
     }
   </script>
 </body>
