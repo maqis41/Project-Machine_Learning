@@ -8,14 +8,13 @@
       margin: 0;
       font-family: sans-serif;
       color: white;
-      background-image: url('/static/img/predict.jpeg');
+      background-image: url('../static/img/predict.jpeg');
       background-repeat: no-repeat;
       background-position: center center;
       background-attachment: fixed;
       background-size: cover;
     }
 
-    /* Tambahan: Gaya untuk header dan logo */
     header {
       display: flex;
       justify-content: space-between;
@@ -69,6 +68,14 @@
       background-color: #009fd1;
     }
 
+    .result {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: rgba(0, 191, 255, 0.3);
+      border-radius: 5px;
+      text-align: center;
+    }
+
     @media (max-width: 480px) {
       .form-container {
         margin: 50px 20px;
@@ -88,32 +95,34 @@
   </header>
 
   <div class="form-container">
+    <h2>Form Prediksi Penyakit Jantung</h2>
     
-    <form method="POST" action="/predict">
-      <input type="text" placeholder="Age" required />
-      <input type="text" placeholder="Sex" required />
-      <input type="text" placeholder="Chest Pain" required />
-      <input type="text" placeholder="Resting PB" required />
-      <input type="text" placeholder="Cholesterol" required />
-      <input type="text" placeholder="Fasting BS" required />
-      <input type="text" placeholder="Resting ECG" required />
-      <input type="text" placeholder="Max HR" required />
-      <input type="text" placeholder="Exercise Angina" required />
-      <input type="text" placeholder="Old peak" required />
-      <input type="text" placeholder="ST Slope" required />
-      <input type="text" placeholder="Heart Disease" required />
+    <form method="POST" action="{{ url_for('predict') }}">
+      <input type="number" name="age" placeholder="Usia" required />
+      <input type="number" name="sex" placeholder="Jenis Kelamin (0: Perempuan, 1: Laki-laki)" required min="0" max="1" />
+      <input type="number" name="cp" placeholder="Jenis Nyeri Dada (0-3)" required min="0" max="3" />
+      <input type="number" name="trestbps" placeholder="Tekanan Darah (mmHg)" required />
+      <input type="number" name="chol" placeholder="Kolesterol (mg/dl)" required />
+      <input type="number" name="fbs" placeholder="Gula Darah Puasa (0/1)" required min="0" max="1" />
+      <input type="number" name="restecg" placeholder="Hasil Elektrokardiografi (0-2)" required min="0" max="2" />
+      <input type="number" name="thalach" placeholder="Detak Jantung Maksimum" required />
+      <input type="number" name="exang" placeholder="Angina Dipicu Olahraga (0/1)" required min="0" max="1" />
+      <input type="number" step="0.1" name="oldpeak" placeholder="Depresi ST" required />
+      <input type="number" name="slope" placeholder="Slope Segmen ST (0-2)" required min="0" max="2" />
+      
       <button type="submit">Predict</button>
     </form>
+
+    {% if prediction %}
+    <div class="result">
+      <h3>Hasil Prediksi: {{ prediction }}</h3>
+    </div>
+    {% endif %}
   </div>
 
   <script>
-    function predict() {
-      alert("Prediksi berhasil dijalankan! (simulasi)");
-      return false; // mencegah reload form
-    }
-
     function goHome() {
-      window.location.href = "{{ url_for('index') }}";
+      window.location.href = "/";
     }
   </script>
 </body>
