@@ -8,10 +8,24 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(rgba(227, 233, 208, 0.6),rgba(227, 233, 208, 0.6)), url('img/bg-team.jpg');
-      background-size: cover;
-      background-position: center;
       color: #06202B;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Improved background implementation from Program 2 */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(227, 233, 208, 0.6), rgba(227, 233, 208, 0.6)), 
+                  url('img/bg-team.jpg') no-repeat center center;
+      background-size: cover;
+      z-index: -2;
     }
 
     header {
@@ -20,6 +34,9 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px 50px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     .logo {
@@ -32,21 +49,24 @@
       position: relative;
       padding: 60px 20px;
       text-align: center;
-      overflow: hidden;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    /* Gambar latar belakang khusus untuk section ini */
-    .team-section .background-image {
-      position: absolute;
+    /* Improved background image implementation from Program 2 */
+    .team-section::before {
+      content: "";
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: url('../static/img/kontak.jpeg') no-repeat center center fixed;
+      background: url('../static/img/kontak.jpeg') no-repeat center center;
       background-size: cover;
-      background-position: center;
-      opacity: 0.3; /* atur transparansi agar teks tetap terbaca */
-      z-index: 0;
+      opacity: 0.3;
+      z-index: -1;
     }
 
     .team-section h1,
@@ -57,13 +77,14 @@
     }
 
     .team-section h1 {
-      font-size: 2.5em;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
       margin-bottom: 10px;
     }
 
     .team-section p {
       color: #645d52;
       margin-bottom: 40px;
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
     }
 
     .team-grid {
@@ -71,13 +92,15 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 30px;
+      margin: 0 auto;
+      max-width: 1200px;
     }
 
     .team-card {
       background-color: rgba(103, 107, 88, 0.938);
       padding: 20px;
       border-radius: 15px;
-      width: 260px;
+      width: clamp(250px, 30vw, 300px);
       text-align: center;
       backdrop-filter: blur(5px);
       transition: transform 0.3s ease;
@@ -98,28 +121,53 @@
 
     .team-card h3 {
       margin: 0;
-      font-size: 1.2em;
+      font-size: clamp(1rem, 2vw, 1.2rem);
     }
 
     .team-card p {
       margin: 5px 0;
       color: #ddd;
-      font-size: 0.95em;
+      font-size: clamp(0.8rem, 1.5vw, 0.95rem);
     }
 
-    @media (max-width: 600px) {
-      .team-card {
-        width: 90%;
-      }
-    }
-     .btn-outline {
+    .btn-outline {
       border: 2px solid white;
       background: transparent;
       color: white;
       padding: 10px 20px;
       border-radius: 25px;
       cursor: pointer;
-      font-size: 14px;
+      font-size: clamp(0.8rem, 2vw, 1rem);
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: black;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px;
+      }
+      
+      .team-section {
+        padding: 40px 15px;
+      }
+      
+      .team-grid {
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .team-card {
+        width: 90%;
+      }
+      
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
     }
   </style>
 </head>
@@ -130,9 +178,6 @@
   </header>
 
   <section class="team-section">
-    <!-- Gambar latar belakang section -->
-    <div class="background-image"></div>
-
     <h1>Anggota Kelompok</h1>
     <p>Berikut adalah anggota tim pengembang website prediksi penyakit jantung.</p>
 
@@ -143,12 +188,12 @@
       </div>
 
       <div class="team-card">
-        <h3>Muahmmad Zacky Safri</h3>
+        <h3>Muhammad Zacky Safri</h3>
         <p>2423600028</p>
       </div>
 
       <div class="team-card">
-        <h3>Bagas Cakti</h3>
+        <h3>Bagas Cakti Rahmandita</h3>
         <p>2423600029</p>
       </div>
 
@@ -160,18 +205,13 @@
   </section>
 
   <script>
-  function goHome() {
-    window.location.href = "/";
-  }
-  
+    function goHome() {
+      window.location.href = "/";
+    }
 
-  
-
-  function goToPredict() {
-    window.location.href = "/predict.html";
-  }
-  
-  
-</script>
+    function goToPredict() {
+      window.location.href = "/predict.html";
+    }
+  </script>
 </body>
 </html>
