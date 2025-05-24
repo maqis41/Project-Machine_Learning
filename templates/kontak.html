@@ -7,15 +7,13 @@
   <style>
     body {
       margin: 0;
-      padding: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #06202B;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      background: linear-gradient(rgba(227, 233, 208, 0.6), rgba(227, 233, 208, 0.6)), 
-                  url('img/bg-team.jpg') no-repeat center center fixed;
+      background: linear-gradient(rgba(227, 233, 208, 0.6),rgba(227, 233, 208, 0.6)), url('img/bg-team.jpg');
       background-size: cover;
+      background-position: center;
+      background-attachment: fixed; /* Tambahkan ini */
+      color: #06202B;
+      min-height: 100vh; /* Tambahkan ini */
     }
 
     header {
@@ -24,8 +22,6 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px 50px;
-      position: relative;
-      z-index: 10;
     }
 
     .logo {
@@ -35,42 +31,42 @@
     }
 
     .team-section {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start; /* Diubah dari center ke flex-start */
-      padding: 60px 20px;
       position: relative;
+      padding: 60px 20px;
       text-align: center;
-      min-height: calc(100vh - 100px); /* Menyesuaikan tinggi header */
+      overflow: hidden;
+      min-height: calc(100vh - 100px); /* Tambahkan ini */
     }
 
-    /* Background image yang sekarang full screen */
-    .team-section::before {
-      content: "";
-      position: fixed; /* Diubah dari absolute ke fixed */
+    /* Gambar latar belakang khusus untuk section ini */
+    .team-section .background-image {
+      position: fixed; /* Ubah dari absolute ke fixed */
       top: 0;
       left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('img/kontak.jpeg') no-repeat center center;
+      width: 100%;
+      height: 100%;
+      background-image: url('img/kontak.jpeg');
       background-size: cover;
+      background-position: center;
       opacity: 0.3;
       z-index: -1;
     }
 
+    .team-section h1,
+    .team-section p,
+    .team-grid {
+      position: relative;
+      z-index: 1;
+    }
+
     .team-section h1 {
       font-size: 2.5em;
-      margin-bottom: 20px;
-      color: #06202B;
+      margin-bottom: 10px;
     }
 
     .team-section p {
       color: #645d52;
       margin-bottom: 40px;
-      max-width: 800px;
-      padding: 0 20px;
     }
 
     .team-grid {
@@ -78,67 +74,45 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
     }
 
     .team-card {
       background-color: rgba(103, 107, 88, 0.938);
-      padding: 30px;
+      padding: 20px;
       border-radius: 15px;
       width: 260px;
       text-align: center;
       backdrop-filter: blur(5px);
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
     }
 
     .team-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .team-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 2px solid white;
     }
 
     .team-card h3 {
-      margin: 0 0 10px 0;
-      font-size: 1.3em;
-      color: white;
+      margin: 0;
+      font-size: 1.2em;
     }
 
     .team-card p {
-      margin: 0;
+      margin: 5px 0;
       color: #ddd;
-      font-size: 1em;
+      font-size: 0.95em;
     }
 
-    @media (max-width: 768px) {
-      .team-section {
-        padding: 40px 15px;
-      }
-      
-      .team-section h1 {
-        font-size: 2em;
-      }
-      
+    @media (max-width: 600px) {
       .team-card {
-        width: 100%;
-        max-width: 300px;
-        padding: 20px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      header {
-        padding: 15px 20px;
-        flex-direction: column;
-      }
-      
-      .logo {
-        margin-bottom: 10px;
-      }
-      
-      .team-grid {
-        gap: 20px;
+        width: 90%;
       }
     }
   </style>
@@ -146,15 +120,12 @@
 <body>
   <header>
     <div class="logo" onclick="goHome()">health care</div>
-    <nav>
-      <a href="index.html">Beranda</a>
-      <a href="apa.html">Tentang</a>
-      <a href="anggota.html">Anggota</a>
-      <a href="kontak.html">Kontak</a>
-    </nav>
   </header>
 
   <section class="team-section">
+    <!-- Gambar latar belakang section -->
+    <div class="background-image"></div>
+
     <h1>Anggota Kelompok</h1>
     <p>Berikut adalah anggota tim pengembang website prediksi penyakit jantung.</p>
 
@@ -174,7 +145,7 @@
         <p>2423600029</p>
       </div>
 
-       <div class="team-card">
+      <div class="team-card">
         <h3></h3>
         <p></p>
       </div>
