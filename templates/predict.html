@@ -98,8 +98,8 @@
     <h2>Form Prediksi Penyakit Jantung</h2>
     
     <form method="POST" action="{{ url_for('predict') }}">
-      <input type="number" name="age" placeholder="Age" required />
-      <input type="number" name="sex" placeholder="Sex" required min="0" max="1" />
+      <input type="number" name="age" placeholder="Age (umur)" required />
+      <input type="number" name="sex" placeholder="Sex (Male = 0 ; Female = 1)" required min="0" max="1" />
       <input type="number" name="cp" placeholder="ChestPainType" required min="0" max="3" />
       <input type="number" name="trestbps" placeholder="RestingBP" required />
       <input type="number" name="chol" placeholder="Cholesterol" required />
