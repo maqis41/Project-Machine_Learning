@@ -34,14 +34,11 @@ def predict():
     trestbps = float(request.form.get('trestbps'))
     chol = float(request.form.get('chol'))
     fbs = float(request.form.get('fbs'))
-    restecg = float(request.form.get('restecg'))
     thalach = float(request.form.get('thalach'))
     exang = 0 if request.form.get('exang') == 'N' else 1  # ExerciseAngina: N=0, Y=1
-    oldpeak = float(request.form.get('oldpeak'))  # Pastikan kolom ini tidak di-drop di model akhir
-    slope = float(request.form.get('slope'))
 
     # Pastikan urutan fitur sama dengan saat training
-    input_data = np.array([[age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope]])
+    input_data = np.array([[age, sex, cp, trestbps, chol, fbs, thalach, exang]])
     
     # Preprocess: normalisasi dengan scaler
     input_scaled = scaler.transform(input_data)
