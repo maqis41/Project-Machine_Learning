@@ -112,11 +112,21 @@
         width: 90%;
       }
     }
+     .btn-outline {
+      border: 2px solid white;
+      background: transparent;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="logo" onclick="goHome()">health care</div>
+    <button class="btn-outline" onclick="goToPredict()">Mulai Sekarang</button>
   </header>
 
   <section class="team-section">
@@ -152,6 +162,13 @@
   <script>
   function goHome() {
     window.location.href = "/";
+  }
+  
+
+  
+
+  function goToPredict() {
+    window.location.href = "/predict.html";
   }
   
   
