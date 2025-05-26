@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apa itu Heart Disease</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Background Image Solution from Program 2 */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('../static/img/apa.jpg') no-repeat center center/cover;
+      z-index: -1;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background-color: rgba(125, 113, 113, 0.6);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 18px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    header button {
+      background-color: transparent;
+      border: 2px solid #fff;
+      color: rgb(68, 65, 65);
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    header button:hover {
+      background-color: #00bfff;
+      border-color: #00bfff;
+    }
+
+    /* Improved Main Content Area from Program 2 */
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      padding: 40px;
+      max-width: 1000px;
+      width: 90%;
+      background-color: rgba(125, 113, 113, 0.6);
+      border-radius: 20px;
+      margin: 40px auto;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Responsive Typography from Program 2 */
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      color: #00bfff;
+      font-weight: 500;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    h3 {
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      color: #ffffff;
+      margin-top: 30px;
+    }
+
+    p, ul {
+      font-size: clamp(0.9rem, 2vw, 1rem);
+      line-height: 1.8;
+      color: #f0f0f0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    img {
+      max-width: 100%;
+      margin: 40px auto;
+      display: block;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(125, 113, 113, 0.6);
+    }
+
+    /* Enhanced Responsive Design from Program 2 */
+    @media screen and (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+      }
+
+      nav {
+        margin-top: 15px;
+        margin-bottom: 15px;
+      }
+
+      .container {
+        padding: 30px 20px;
+        width: 95%;
+        margin: 20px auto;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .container {
+        padding: 25px 15px;
+      }
+      
+      p, ul {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Original Content from Program 1 Preserved -->
+  <header>
+    <div class="logo" onclick="goHome()">health care</div>
+    <nav>
+      <a href="kontak.html">Kontak</a>
+    </nav>
+    <button onclick="goToPredict()">Mulai Sekarang</button>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1>Apa itu Heart Disease?</h1>
+      
+      <p>Penyakit jantung adalah gangguan yang memengaruhi fungsi dan struktur jantung, dan merupakan salah satu penyebab kematian paling umum di seluruh dunia. Salah satu jenis yang paling banyak ditemui adalah penyakit jantung koroner, yaitu penyumbatan pada pembuluh darah jantung (arteri koroner) akibat penumpukan plak kolesterol. Penyumbatan ini menghambat aliran darah ke otot jantung dan dapat menyebabkan nyeri dada (angina) atau bahkan serangan jantung jika aliran darah terhenti sepenuhnya.</p>
+      <p>Selain itu, ada kondisi yang disebut gagal jantung, yaitu ketika jantung tidak mampu memompa darah secara efisien ke seluruh tubuh. Gejala yang sering muncul antara lain sesak napas, kelelahan berlebihan, dan pembengkakan di kaki atau pergelangan kaki. Ada juga aritmia, yaitu gangguan irama jantung yang bisa menyebabkan jantung berdetak terlalu cepat (takikardia), terlalu lambat (bradikardia), atau tidak beraturan (seperti fibrilasi atrium).</p>
+      
+      <p>Faktor risiko yang meningkatkan kemungkinan seseorang terkena penyakit jantung antara lain merokok, tekanan darah tinggi, kolesterol tinggi, diabetes, obesitas, kurang olahraga, serta riwayat penyakit jantung dalam keluarga. Untuk mencegahnya, penting menjalani gaya hidup sehat, seperti mengonsumsi makanan bergizi, rutin berolahraga, tidak merokok, menjaga berat badan ideal, mengelola stres, serta melakukan pemeriksaan kesehatan secara rutin.</p>
+    </div>
+  </main>
+
+  <script>
+    function goHome() {
+      window.location.href = "/";
+    }
+    
+    function goToPredict() {
+      window.location.href = "/predict.html";
+    }
+  </script>
+</body>
+</html>

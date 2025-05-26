@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Health Care</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: rgba(155, 140, 140, 0.6);
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      position: relative;
+      flex: 1;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      box-sizing: border-box;
+      background-color: rgba(155, 140, 140, 0.6);
+    }
+
+    /* Background Image (diambil dari Program 2) */
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('../static/img/index.jpg') no-repeat center center/cover;
+      z-index: -1;
+      opacity: 0.7;
+    }
+
+    /* Typography Scaling (diambil dari Program 2) */
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin: 0 0 15px 0;
+      font-weight: 800;
+    }
+
+    .hero h3 {
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      margin-bottom: 10px;
+      font-weight: 400;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      margin: 0 auto 25px;
+      max-width: 600px;
+    }
+
+    .hero button {
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      padding: 12px 30px;
+      background-color: #00bfff;
+      border: none;
+      border-radius: 30px;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 20px;
+    }
+
+    .hero button:hover {
+      background-color: #009fd1;
+    }
+
+    .btn-outline {
+      border: 2px solid white;
+      background: transparent;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: black;
+    }
+
+    /* Footer (diubah ke relative seperti Program 2) */
+    footer {
+      position: relative;
+      text-align: center;
+      font-size: 12px;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 10px;
+      color: #333;
+    }
+
+    /* Responsive (diambil dari Program 2) */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero button {
+        width: 80%;
+        max-width: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Konten Program 1 tetap sama -->
+  <header>
+    <div class="logo" onclick="goHome()">health care</div>
+    <nav>
+      <a href="apa.html">Tentang</a>
+      <a href="kontak.html">Kontak</a>
+    </nav>
+    <button class="btn-outline" onclick="goToPredict()">Mulai Sekarang</button>
+  </header>
+
+  <main class="hero">
+    <h3>Selamat Datang di</h3>
+    <h1>Website Prediksi Heart Disease</h1>
+    <p>Temukan resiko penyakit jantung Anda.</p>
+    <button onclick="goToPredict()">Mulai Sekarang</button>
+  </main>
+
+  <footer></footer>
+
+  <script>
+    function goHome() {
+      window.location.href = "/";
+    }
+
+    function goToPredict() {
+      window.location.href = "/predict.html";
+    }
+  </script>
+</body>
+</html>
