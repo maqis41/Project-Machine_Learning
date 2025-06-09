@@ -31,19 +31,6 @@
       cursor: pointer;
     }
 
-    .form-container {
-      max-width: 400px;
-      margin: 100px auto;
-      background-color: rgba(91, 91, 88, 0.85);
-      padding: 20px;
-      border-radius: 12px;
-    }
-
-    .form-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
     input {
       width: 100%;
       margin: 10px 0;
@@ -68,18 +55,61 @@
       background-color: #009fd1;
     }
 
-    .result {
-      margin-top: 20px;
+    select {
+      width: 100%;
+      margin: 10px 0;
       padding: 10px;
-      background-color: rgba(0, 191, 255, 0.3);
       border-radius: 5px;
-      text-align: center;
+      border: none;
+      box-sizing: border-box;
+      background-color: white;
+      font-family: sans-serif;
+      font-size: 1rem;
+      appearance: none; /* untuk tampilan default browser */
     }
 
-    @media (max-width: 480px) {
+    /* Opsional: style untuk option */
+    option {
+      padding: 10px;
+    }
+
+    .form-wrapper {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start; /* Biar atasnya rata */
+      justify-content: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .form-container,
+    .result {
+      background-color: rgba(91, 91, 88, 0.85); /* Warna & opacity sama */
+      border-radius: 12px;
+      padding: 20px;
+      color: white;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container {
+      width: 300px;
+    }
+
+    .result {
+      width: 450px;
+    }
+
+    @media (max-width: 768px) {
       .form-container {
         margin: 50px 20px;
         padding: 15px;
+        flex-direction: column;
+      }
+
+      .form-container, .result-box {
+        width: 100%;
       }
 
       header {
@@ -94,28 +124,66 @@
     <div class="logo" onclick="goHome()">health care</div>
   </header>
 
-  <div class="form-container">
-    <h2>Form Prediksi Penyakit Jantung</h2>
-    
-    <form method="POST" action="{{ url_for('predict') }}">
-      <input type="number" name="age" placeholder="Age (umur)" required />
-      <input type="number" name="sex" placeholder="Sex (Male: 0 ; Female: 1)" required min="0" max="1" />
-      <input type="number" name="cp" placeholder="ChestPainType (ATA: 0, NAP: 1, ASY: 2, TA: 3)" required min="0" max="3" />
-      <input type="number" name="trestbps" placeholder="RestingBP (Tekanan Darah Saat Istirahat)" required />
-      <input type="number" name="chol" placeholder="Cholesterol (Kadar Kolesterol)" required />
-      <input type="number" name="fbs" placeholder="FastingBS (Kadar Gula Darah Setelah Puasa)" required min="0" max="1" />
-      <input type="number" name="thalach" placeholder="MaxHR (Denyut Jantung Maksimal)" required />
-      <input type="number" name="exang" placeholder="ExerciseAngina (NO: 0, YES: 1)" required min="0" max="1" />
-      
-      <button type="submit">Predict</button>
-    </form>
+  <div class="form-wrapper">
+    <div class="form-container">
+      <h2>Form Prediksi Penyakit Jantung</h2>
 
-    {% if prediction %}
-    <div class="result">
-      <h3>Hasil Prediksi: {{ prediction }}</h3>
+      <form method="POST" action="{{ url_for('predict') }}">
+        <input type="number" name="age" placeholder="Age (Umur)" required />
+
+        <select name="sex" required>
+          <option value="">--Pilih Jenis Kelamin--</option>
+          <option value="0">Laki-laki</option>
+          <option value="1">Perempuan</option>
+        </select>
+
+        <select name="cp" required>
+          <option value="">--Pilih Jenis Nyeri Dada--</option>
+          <option value="0">ATA (Atypical Angina)</option>
+          <option value="1">NAP (Non-Anginal Pain)</option>
+          <option value="2">ASY (Asymptomatic)</option>
+          <option value="3">TA (Typical Angina)</option>
+        </select>
+
+        <input type="number" name="trestbps" placeholder="RestingBP (Tekanan Darah Saat Istirahat)" required />
+        <input type="number" name="chol" placeholder="Cholesterol (Kolesterol)" required />
+
+        <select name="fbs" required>
+          <option value="">--FastingBS > 120 mg/dl ?--</option>
+          <option value="1">Ya</option>
+          <option value="0">Tidak</option>
+        </select>
+
+        <input type="number" name="thalach" placeholder="MaxHR (Denyut Jantung Maks)" required />
+
+        <select name="exang" required>
+          <option value="">--Exercise Angina--</option>
+          <option value="0">Tidak</option>
+          <option value="1">Ya</option>
+        </select>
+
+        <button type="submit">Predict</button>
+      </form>
     </div>
-    {% endif %}
+
+    <div class="result">
+      {% if prediction %}
+        <h3>Hasil Prediksi: {{ status }}</h3>
+        <p>{{ paragraf1|safe }}</p>
+        <p>{{ paragraf2|safe }}</p>
+        <ul>
+          {% for tip in tips %}
+            <li>{{ tip|safe }}</li>
+          {% endfor %}
+        </ul>
+        <p>{{ paragraf3|safe }}</p>
+      {% else %}
+        <h3>Hasil Prediksi: Tolong isi data terlebih dahulu</h3>
+      {% endif %}
+    </div>
   </div>
+
+  
 
 <script>
   function goHome() {
