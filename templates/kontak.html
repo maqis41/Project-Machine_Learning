@@ -169,6 +169,19 @@
         gap: 10px;
       }
     }
+
+  .copyright-logo {
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 5px;
+    color: rgb(3, 3, 3);
+    font-size: 17px;
+    z-index: 1000;
+  }
   </style>
 </head>
 <body>
@@ -176,7 +189,10 @@
     <div class="logo" onclick="goHome()">health care</div>
     <button class="btn-outline" onclick="goToPredict()">Mulai Sekarang</button>
   </header>
-
+ <div class="copyright-logo">
+  <img src="../static/img/logo.png" alt="Logo" style="width: 30px; height: 30px;">
+  <span>Kelompok 6</span>
+</div>
   <section class="team-section">
     <h1>Anggota Kelompok</h1>
     <p>Berikut adalah anggota tim pengembang website prediksi penyakit jantung.</p>

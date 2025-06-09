@@ -147,6 +147,19 @@
         max-width: 200px;
       }
     }
+
+   .copyright-logo {
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 5px;
+    color: rgb(3, 3, 3);
+    font-size: 17px;
+    z-index: 1000;
+  }
   </style>
 </head>
 <body>
@@ -166,7 +179,10 @@
     <p>Temukan resiko penyakit jantung Anda.</p>
     <button onclick="goToPredict()">Mulai Sekarang</button>
   </main>
-
+  <div class="copyright-logo">
+  <img src="../static/img/logo.png" alt="Logo" style="width: 30px; height: 30px;">
+  <span>Kelompok 6</span>
+</div>
   <footer></footer>
 
   <script>

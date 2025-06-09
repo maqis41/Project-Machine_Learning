@@ -117,13 +117,29 @@
         align-items: flex-start;
       }
     }
+
+    .copyright-logo {
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 5px;
+    color:  rgb(3, 3, 3);
+    font-size: 17px;
+    z-index: 1000;
+  }
   </style>
 </head>
 <body>
   <header>
     <div class="logo" onclick="goHome()">health care</div>
   </header>
-
+ <div class="copyright-logo">
+  <img src="../static/img/logo.png" alt="Logo" style="width: 30px; height: 30px;">
+  <span>Kelompok 6</span>
+</div>
   <div class="form-wrapper">
     <div class="form-container">
       <h2>Form Prediksi Penyakit Jantung</h2>
